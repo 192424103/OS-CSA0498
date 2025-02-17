@@ -1,0 +1,21 @@
+import time
+
+def measure_fps():
+    start_time = time.time()
+    frame_count = 0
+    while time.time() - start_time < 5:
+        frame_count += 1
+    return frame_count / (time.time() - start_time)
+
+def measure_latency():
+    start = time.time()
+    input("Press Enter...")
+    return (time.time() - start) * 1000
+
+def main():
+    print(f"FPS: {measure_fps()}")
+    print(f"Input Latency: {measure_latency():.2f} ms")
+
+if __name__ == "__main__":
+    main()
+
