@@ -1,0 +1,27 @@
+import time
+import psutil
+
+def get_cpu_usage():
+    """Get CPU utilization."""
+    return psutil.cpu_percent(interval=1)
+
+def measure_input_latency():
+    """Measure input latency by tracking key press and response time."""
+    print("Press Enter when ready...")
+    input()
+    start_time = time.time()
+    input("Press Enter again as fast as possible!")
+    latency = (time.time() - start_time) * 1000  # Convert to milliseconds
+    return latency
+
+def benchmark_game():
+    """Benchmark game performance."""
+    print("Starting benchmark...")
+    cpu_usage = get_cpu_usage()
+    latency = measure_input_latency()
+    
+    print(f"CPU Usage: {cpu_usage}%")
+    print(f"Input Latency: {latency:.2f} ms")
+    
+if __name__ == "__main__":
+    benchmark_game()
